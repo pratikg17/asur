@@ -1974,14 +1974,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     //  END FOR EDIT
-    $scope.editBoxCustomProjectPhotos = function(data) {
+    $scope.editBoxCustomComponentsPhotos = function(data) {
 
         console.log("DATADATA", data);
         $scope.datainfo = data;
         $scope.newinfo = {};
         $scope.modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
-            templateUrl: '/backend/views/modal/image-edit-edit.html',
+            templateUrl: '/backend/views/modal/image-edit-components.html',
             size: 'lg',
             scope: $scope,
 
@@ -2052,9 +2052,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-    $scope.saveEditProjectPhotos = function(value) {
+    $scope.saveEditComponentsPhotos = function(value) {
         console.log("DATA", value);
-        NavigationService.boxCall("Project/save", value, function(data) {
+        NavigationService.boxCall("Components/save", value, function(data) {
             $scope.projectData = data.data;
             $scope.generateField = true;
             $scope.modalInstance.close();
