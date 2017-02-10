@@ -58,6 +58,13 @@ jsonservicemod.service('JsonService', function($http, TemplateService, $state, t
                     }
                     break;
 
+                case "projectexpenseedit":
+                    {
+                        console.log("IN PROJECT EXPENSER EDIT");
+                        TemplateService.changecontent("projectexpense-detail");
+                    }
+                    break;
+
                 case "componentsedit":
                     {
                         console.log("IN PROJECT EDIT");
@@ -149,6 +156,9 @@ jsonservicemod.service('JsonService', function($http, TemplateService, $state, t
             } else if (action && action.type == "projectpage") {
                 console.log("IN PROJECT TYPE");
                 $state.go("projectpage", sendTo);
+            } else if (action && action.type == "projectexpensepage") {
+                console.log("IN projectexpensepage TYPE");
+                $state.go("projectexpensepage", sendTo);
             } else if (action && action.type == "componentspage") {
                 console.log("IN componentspage TYPE");
                 $state.go("componentspage", sendTo);
