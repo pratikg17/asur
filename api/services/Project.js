@@ -128,7 +128,7 @@ module.exports = mongoose.model('Project', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'user institute state transaction components', 'user institute state transaction components'));
 var model = {
 
-    saveProject: function (data, callback) {
+    saveProject: function(data, callback) {
         var myprojectdata = data;
         console.log("Data in ADD PROJECT", data);
         console.log(data._id);
@@ -168,7 +168,7 @@ var model = {
             _id: data._id
         }, data2, {
             new: true
-        }).exec(function (err, found) {
+        }).exec(function(err, found) {
             if (err) {
 
                 // console.log("err", err);
@@ -181,7 +181,7 @@ var model = {
         });
     },
 
-    saveProjectPhotos: function (data, callback) {
+    saveProjectPhotos: function(data, callback) {
 
         console.log(data);
         Project.findOneAndUpdate({
@@ -197,7 +197,7 @@ var model = {
                     }]
                 }
             }
-        }).exec(function (err, found) {
+        }).exec(function(err, found) {
 
             if (err) {
                 // console.log(err);
@@ -217,10 +217,10 @@ var model = {
         })
     },
 
-    addNewProject: function (data, callback) {
+    addNewProject: function(data, callback) {
         var projectdata = data;
         projectdata = this(projectdata);
-        projectdata.save(function (err, respo) {
+        projectdata.save(function(err, respo) {
             if (err) {
                 callback(err, null);
             } else {
@@ -233,7 +233,7 @@ var model = {
                     $push: {
                         project: respo._id
                     }
-                }).exec(function (err, found) {
+                }).exec(function(err, found) {
                     if (err) {
                         callback(err, null);
                     } else {
@@ -245,7 +245,7 @@ var model = {
                                 $push: {
                                     project: respo._id
                                 }
-                            }).exec(function (err, found) {
+                            }).exec(function(err, found) {
                                 if (err) {
                                     callback(err, null);
                                 } else {
@@ -276,10 +276,10 @@ var model = {
     },
 
 
-    addNewProject: function (data, callback) {
+    addNewProject: function(data, callback) {
         var projectdata = data;
         projectdata = this(projectdata);
-        projectdata.save(function (err, respo) {
+        projectdata.save(function(err, respo) {
             if (err) {
                 callback(err, null);
             } else {
@@ -292,7 +292,7 @@ var model = {
                     $push: {
                         project: respo._id
                     }
-                }).exec(function (err, found) {
+                }).exec(function(err, found) {
                     if (err) {
                         callback(err, null);
                     } else {
@@ -304,7 +304,7 @@ var model = {
                                 $push: {
                                     project: respo._id
                                 }
-                            }).exec(function (err, found) {
+                            }).exec(function(err, found) {
                                 if (err) {
                                     callback(err, null);
                                 } else {
@@ -334,12 +334,12 @@ var model = {
         });
     },
 
-    findOneProject: function (data, callback) {
+    findOneProject: function(data, callback) {
 
 
         Project.findOne({
             _id: data._id
-        }).deepPopulate("photos").exec(function (err, found) {
+        }).deepPopulate("photos").exec(function(err, found) {
 
             if (err) {
 
@@ -360,8 +360,8 @@ var model = {
     },
 
 
-    findAllState: function (data, callback) {
-        Project.find().select("state").deepPopulate("state").exec(function (err, found) {
+    findAllState: function(data, callback) {
+        Project.find().select("state").deepPopulate("state").exec(function(err, found) {
             if (err) {
                 // console.log(err);
                 callback(err, null);
@@ -379,11 +379,11 @@ var model = {
     },
 
 
-    getInstitute: function (data, callback) {
+    getInstitute: function(data, callback) {
 
         Project.find({
             institute: data._id
-        }).deepPopulate("state institute").exec(function (err, found) {
+        }).deepPopulate("state institute").exec(function(err, found) {
             if (err) {
                 console.log("Err", err);
                 callback(err, null);
@@ -398,7 +398,7 @@ var model = {
 
 
 
-    removeProjectPhotos: function (data, callback) {
+    removeProjectPhotos: function(data, callback) {
 
         console.log("DATA", data);
         Project.update({
@@ -411,11 +411,9 @@ var model = {
                     photo: data.photo,
                     tags: data.tags
 
-
-
                 }
             }
-        }, function (err, updated) {
+        }, function(err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
