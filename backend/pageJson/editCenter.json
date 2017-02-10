@@ -1,0 +1,46 @@
+{
+    "title": "Edit Centre",
+    "name": "Center",
+    "jsonPage": "viewCenter",
+    "desciption": "",
+    "pageType": "centreedit",
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "Centre Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter Name",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitCenter",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCenter"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCenter"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Center/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Center/getOne",
+        "params": "_id"
+    }
+
+}

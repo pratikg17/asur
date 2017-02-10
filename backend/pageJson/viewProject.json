@@ -1,0 +1,72 @@
+{
+    "title": "Project",
+    "description": "List of Project",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "Project Name",
+            "type": "text",
+            "isSort": "",
+            "tableRef": "name"
+        },
+
+        {
+            "name": "Status",
+            "type": "text",
+            "isSort": "",
+            "tableRef": "status"
+        },
+        {
+            "name": "Due Date",
+            "type": "text",
+            "isSort": "",
+            "tableRef": "dueDate"
+        }
+    ],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "projectpage",
+        "action": "editProject",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Project",
+        "content": "Are you sure you want to delete Project?",
+        "api": "Project/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Excel Export",
+        "icon": "print",
+        "class": "btn-danger",
+        "type": "redirect",
+        "action": "excelexport"
+    }, {
+        "name": "Upload Excel",
+        "icon": "delete",
+        "class": "btn-warning",
+        "type": "redirect",
+        "action": "uploadcsv"
+    }, {
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createProject"
+    }],
+    "apiCall": {
+        "url": "Project/search",
+        "params": "_id"
+    }
+}

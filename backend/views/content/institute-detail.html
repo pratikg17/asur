@@ -1,0 +1,153 @@
+<div ng-controller="InstituteDetailCtrl">
+  <div class="heading-sec">
+    <div class="row">
+      <div class="col-md-4 column">
+        <div class="heading-profile">
+          <h2>{{json.json.title}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget">
+          <div class="form-elements-sec">
+            <form name="detailForm" role="form" class="sec">
+              <div class="row">
+                <div class="col-md-12">
+                  <div>
+                    <!--<div class="form-group">
+                      <label>Institute Name </label>
+                      <input type="text" name="name" placeholder="Enter Name" ng-model="formData[type.tableRef.name]" class="form-control" ng-required="type.required"
+                        ng-disabled="">
+                      <div class="erng-hide" ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid Institute Name</div>
+                    </div>
+                  </div>-->
+                    <div>
+                      <!---->
+                      <form name="detailForm" role="form" class="sec ng-pristine ng-valid">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <detail-field type="field" form="detailForm" value="item" ng-repeat="field in json.json.fields" data="data">
+                            </detail-field>
+                          </div>
+                        </div>
+                      </form>
+                      <!---->
+                      <h1>
+                      </h1>
+                      <!--<div class="form-group">-->
+                      <!--<label>State</label>-->
+                      <!-- MultipleSelect -->
+                      <!--<multiple-select name="state" required="" ng-model="formData[type.tableRef]" ng-name="name[type.tableRef]" url="State/search"-->
+                      <!--api="searchCall" ng-if="!type.filterField">-->
+                      <!--</multipleSelect>-->
+                      <!-- End MultipleSelect -->
+                      <!--<div class="erng-hide " ng-show="detailForm[type.tableRef].$invalid ">Please Select State</div>-->
+                      <!--</div>-->
+                    </div>
+                    <div>
+                      <div>
+                        <a class=" btn btn-primary  pull-right ml-10" ng-click="addBoxProject(json.keyword._id,ownData.state._id)">Add New</a>
+                        <span style="float:right;width:200px; "><input type="search " class="form-control" placeholder="Search... " ng-model="search.text "> </span>
+                      </div>
+                      <div class="sec">
+                        <div>
+                          <table class="table table-input ">
+                            <thead>
+                              <tr>
+                                <th>Project ID</th>
+                                <th>PAB</th>
+                                <th>Key Component</th>
+                                <th>Allocation Type</th>
+                                <th>End Point</th>
+                                <th>Allocation (Lacs)</th>
+                                <th>Fund Released(Lacs)</th>
+                                <th>Fund Ultilized(%)</th>
+                                <th>Project Status</th>
+                                <th>Fund Status</th>
+                                <th>Work Status</th>
+                                <!--<th>Sub Status</th>-->
+                                <th width="150px ">Actions</th>
+                              </tr>
+                              <thead>
+                                <tr ng-repeat="project in tableData">
+                                  <td>{{project.project_id}}</td>
+                                  <td>{{project.project_approved_board_no}}</td>
+                                  <td>{{project.component}}</td>
+                                  <td>{{project.allocationType}}</td>
+                                  <td>{{project.endPoint}}</td>
+                                  <td>{{project.totalAllocation}}</td>
+                                  <td>{{project.fundReleased}}</td>
+                                  <td>{{project.ultilization}}</td>
+                                  <td>{{project.projectStatus}}</td>
+                                  <td>{{project.fundStatus}}</td>
+                                  <td>{{project.workStatus}}</td>
+                                  <!--<td>{{project.subStatus}}</td>-->
+                                  <td>
+                                    <a class="btn btn-primary" ng-click="editBoxCustomProject(project)">
+                                      <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a class="btn btn-danger" ng-click="removeProject(project,tableData.state._id)">
+                                      <i class="fa fa-trash"></i>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tbody>
+                                </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <!--{{instituteUserData}}-->
+                      <!--<div ng-init="STATE"></div>-->
+                      <a class=" btn btn-primary pull-right ml-10" ng-click="addBoxInstituteUser();">Add New</a>
+                      <span style="float:right;width:200px; "><input type="search " class="form-control" placeholder="Search... " ng-model="search.text "> </span>
+                    </div>
+                    <div class="sec">
+                      <div>
+                        <table class="table table-input ">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>User </th>
+                              <th width="150px ">Actions</th>
+                            </tr>
+                            <thead>
+                              <tr ng-repeat="user in instituteUserData.users">
+                                <td>{{$index+1}}</td>
+                                <td>{{user.name}}</td>
+                                <td>
+                                  <a class="btn btn-primary" ng-click="editBoxCustomUserInstitute(user,instituteUserData._id)">
+                                    <i class="fa fa-pencil"></i>
+                                  </a>
+                                  <a class="btn btn-danger" ng-click="removeUser(user)">
+                                    <i class="fa fa-trash"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tbody>
+                              </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </form>
+            </div>
+          </div>
+          <div class="text-center mt20 odd-even-button ">
+            <button class="btn btn-default " type="submit " ng-click="saveData(data) " ng-disabled="detailForm.$invalid ">Save</button>
+            <button class="btn btn-default " ng-click="onCancel(json.json.action[1].stateName) ">Cancel</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

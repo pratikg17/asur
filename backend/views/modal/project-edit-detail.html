@@ -1,0 +1,137 @@
+<form name="modalForm" ng-submit="modalOptions.submit()" class="min-hit">
+    <div class="modal-header blue-bg">
+        <div class="pull-right">
+            <a class="btn btn-clear" ng-click="$dismiss()">
+                <i class="ln-cross"></i>
+            </a>
+        </div>
+        <h5 class="modal-title">Edit Project</h5>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <div class="form-group">
+                        <label>PAB. </label>
+                        <input type="number" name="pab" placeholder="Enter Project Approved Board  No" ng-model="info.project_approved_board_no"
+                            class="form-control" ng-required="type.required" ng-disabled="">
+                            <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid PAB</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Key Component</label>
+                        <input type="text" name="keycomponent" placeholder="Enter Key Component" ng-model="info.component" class="form-control" ng-required="type.required"
+                            ng-disabled="">
+                            <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid Key Component</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Allocation Type</label>
+                        <input type="text" name="allocation" placeholder="Enter Allocation Type" ng-model="info.allocationType" class="form-control"
+                            ng-required="type.required" ng-disabled="">
+                            <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid Allocation Type</div>
+                    </div>
+                    <div>
+                        <div class="form-group ">
+                            <label>End Point</label>
+                            <input type="text" name="title" placeholder="Enter End Point" ng-model="info.endPoint" class="form-control" ng-required="type.required"
+                                ng-disabled="">
+                                <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid End Point</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Allocation</label>
+                        <input type="number" name="totalAllocation" placeholder="Enter Allocation" ng-model="info.totalAllocation" class="form-control" ng-required="type.required"
+                            ng-disabled="" only-digits="">
+                            <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid Allocation</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Fund Released</label>
+                        <input type="text" name="fundReleased" placeholder="Enter Fund Released " ng-model="info.fundReleased" class="form-control"
+                            ng-required="type.required" ng-disabled="" only-digits="">
+                            <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid Fund Released</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group ">
+                        <label>Fund Ultilized</label>
+                        <input type="text" name="totalAmount" placeholder="Enter Fund Ultilized" ng-model="info.ultilization" class="form-control"
+                            ng-required="type.required" ng-disabled="" only-digits="">
+                            <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid Fund Ultilized</div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div class="form-group ">
+                            <label>Project Status</label>
+                            <!--<multiple-select name="state" required="" ng-model="" ng-name="name[type.tableRef]" url="Project/search" api="searchCall"
+                            ng-if="!type.filterField"></multiple-select>
+                        <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched &amp;&amp; type.required">Please enter valid Status</div>-->
+                            <select ng-model="info.projectStatus" class="form-control">{{info.projectStatus}} 
+                            <option ng-repeat="x in projectStatus" value="{{x}}"> {{x}}</option>
+                        </select>
+                        </div>
+                        <div>
+                            <div class="form-group ">
+                                <label>Fund Status</label>
+                                <!--<multiple-select name="state" required="" ng-model="" ng-name="name[type.tableRef]" url="Project/search" api="searchCall"
+                                ng-if="!type.filterField"></multiple-select>
+                        </div>-->
+                                <select ng-model="info.fundStatus" class="form-control">{{info.fundStatus}} 
+                                <option ng-repeat="y in fundStatus" value="{{y}}"> {{y}}</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group ">
+                            <label>Work Status</label>
+                            <!--<multiple-select name="state" required="" ng-model="" ng-name="name[type.tableRef]" url="Project/search" api="searchCall"
+                                ng-if="!type.filterField"></multiple-select>
+                        </div>-->
+                            <select ng-model="info.workStatus" class="form-control">{{info.workStatus}} 
+                                <option ng-repeat="y in workStatus" value="{{y}}"> {{y}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <!---->
+                <!--<select ng-model="info.projectStatus"  class="form-control">{{info.status}} 
+<option ng-repeat="x in status" value="{{x}}"> {{x}}</option>
+</select>-->
+                <!--</select>-->
+                <!--<div class="form-group ">
+                        <label>Quantity</label>
+                        <input type="number" name="quantity" placeholder="Enter Quantity" ng-model="info.quantity" class="form-control" ng-required="type.required"
+                            ng-disabled="" only-digits="">
+                        <div class="error-msg " ng-show="detailForm[type.tableRef].$invalid &amp;&amp; detailForm[type.tableRef].$touched">Please enter valid Quantity</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group ">
+                        <label>Status</label>
+                        <select ng-model="info.status" class="form-control">{{info.status}} 
+                            <option ng-repeat="x in status" value="{{x}}"> {{x}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="form-group ">
+                            <label>Sub Status</label>
+                            <select ng-model="info.subStatus" class="form-control">{{info.status}} 
+                                <option ng-repeat="y in subStatus" value="{{y}}"> {{y}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="text-center mt20 odd-even-button">
+                    <button class="btn btn-primary btn-save" type="submit" ng-click="saveProject(info)">Save</button>
+                    <button class="btn btn-primary btn-danger" type="submit" ng-click="closeBox()">Cancel</button>
+                </div>
+            </div>
+</form>
+</div>

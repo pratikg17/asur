@@ -1,0 +1,153 @@
+{
+    "title": "Create Milestones",
+    "name": "Milestones",
+    "jsonPage": "viewMilestones",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Milestones"],
+    "fields": [
+
+        {
+            "name": "Work Order",
+            "type": "checkbox",
+            "tableRef": "workOrder",
+            "placeholder": "Enter Work Order",
+            "id": "workOrder",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+
+        {
+            "name": "Item Detail",
+            "type": "text",
+            "tableRef": "itemDetail",
+            "placeholder": "Enter Item Detail",
+            "id": "itemDetail",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+                {
+            "name": "Due Date",
+            "type": "date",
+            "tableRef": "dueDate",
+            "placeholder": "Enter Due Date",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+        {
+            "name": "Project",
+            "type": "selectFromTable",
+            "dropDownType": "single",
+            "searchApi": "searchCall",
+            "tableRef": "project",
+            "placeholder": "Enter Project Name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "Project/search"
+        }, {
+            "name": "Status",
+            "type": "tags",
+            "tableRef": "status",
+            "placeholder": "Enter Sub Status",
+            "id": "status",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "dropDown": ["Pending", "Cancelled", "Completed"]
+        }, {
+            "name": "Amount of Work(%)",
+            "type": "number",
+            "tableRef": "percentageCompleted",
+            "placeholder": "Enter Amount of Work(%)",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+
+
+
+        {
+            "name": "Photos",
+            "type": "image",
+            "option": "single",
+            "tableRef": "photos",
+            "placeholder": "Enter Image",
+            "id": "input1",
+            "view": true,
+            "validation": ["", "trim", "unique"],
+            "url": ""
+        },
+
+        {
+            "name": "Timeline",
+            "type": "date",
+            "tableRef": "timeline",
+            "placeholder": "Enter Timeline",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Completion Date",
+            "type": "date",
+            "tableRef": "completionDate",
+            "placeholder": "Enter Completion Date",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+
+        {
+            "name": "Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter Name",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+
+        {
+            "name": "Transaction",
+            "type": "selectFromTable",
+            "dropDownType": "single",
+            "searchApi": "searchCall",
+            "tableRef": "transaction",
+            "placeholder": "Enter Transaction Name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "Transaction/search"
+        }, {
+            "name": "Quantity",
+            "type": "number",
+            "tableRef": "quantity",
+            "placeholder": "Enter Quantity",
+            "id": "quantity",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitMilestones",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMilestones"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMilestones"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Milestones/save"
+    }
+}

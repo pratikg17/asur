@@ -1,0 +1,72 @@
+{
+    "title": "Edit State",
+    "name": "State",
+    "jsonPage": "viewState",
+    "desciption": "",
+    "pageType": "stateedit",
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "State Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter State Name",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+        {
+            "name": "Abbreviation",
+            "type": "text",
+            "tableRef": "abbreviation",
+            "placeholder": "Enter Abbreviation",
+            "id": "abbreviation",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+        {
+            "name": "Centre Share",
+            "type": "number",
+            "tableRef": "centerShare",
+            "placeholder": "Enter Centre Share ",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "State Share",
+            "type": "number",
+            "tableRef": "stateShare",
+            "placeholder": "Enter State Share",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitState",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewState"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewState"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "State/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "State/getOne",
+        "params": "_id"
+    }
+
+}

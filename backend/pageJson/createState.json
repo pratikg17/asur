@@ -1,0 +1,66 @@
+{
+    "title": "Create State",
+    "name": "State",
+    "jsonPage": "viewState",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["State"],
+    "fields": [{
+            "name": "Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter State Name",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+        {
+            "name": "Abbreviation",
+            "type": "text",
+            "tableRef": "abbreviation",
+            "placeholder": "Enter Abbreviation",
+            "id": "abbreviation",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },
+        {
+            "name": "Centre Share",
+            "type": "number",
+            "tableRef": "centerShare",
+            "placeholder": "Enter Centre Share ",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "State Share",
+            "type": "number",
+            "tableRef": "stateShare",
+            "placeholder": "Enter State Share",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitState",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewState"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewState"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "State/save"
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "title": "Edit Project",
+    "name": "Project",
+    "jsonPage": "viewProject",
+    "desciption": "",
+    "pageType": "projectedit",
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "Project Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter Title",
+            "id": "title",
+            "validation": ["", "trim", ""],
+            "url": ""
+
+        },
+        {
+            "name": "Components Name",
+            "type": "selectFromTable",
+            "dropDownType": "single",
+            "searchApi": "searchCall",
+            "tableRef": "components",
+            "placeholder": "Enter Components Name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "Components/search"
+        },
+        {
+            "name": "Project Type",
+            "type": "selectFromTable",
+            "dropDownType": "single",
+            "searchApi": "searchCall",
+            "tableRef": "projectType",
+            "placeholder": "Enter Project Type",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "ProjectType/search"
+        },
+        {
+            "name": "Asset Type",
+            "type": "selectFromTable",
+            "dropDownType": "single",
+            "searchApi": "searchCall",
+            "tableRef": "assetType",
+            "placeholder": "Enter Asset Type",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "AssetType/search"
+        },
+        {
+            "name": "Value of Project",
+            "type": "number",
+            "tableRef": "valueOfProject",
+            "placeholder": "Enter Value of Project",
+            "id": "valueOfProject",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Due Date",
+            "type": "date",
+            "tableRef": "dueDate",
+            "placeholder": "Enter Due Date",
+            "id": "name",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Status",
+            "type": "tags",
+            "tableRef": "status",
+            "placeholder": "Enter Status",
+            "id": "status",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "dropDown": ["Active", "Complete", "Cancelled", "OnHold"]
+        }
+
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitProject",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewProject"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewProject"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Project/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Project/getOne",
+        "params": "_id"
+    }
+
+}
